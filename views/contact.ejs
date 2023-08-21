@@ -1,0 +1,16 @@
+<h1>Contact Form</h1>
+<p>Send me a message, and I'll get back to you as soon as possible.</p>
+<form action="/post-contact" method="post">
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" placeholder="your email" aria-label="enter your email" required>
+  <label for="message">Message</label>
+  <textarea
+    id="message"
+    name="message"
+    placeholder="tell me how can i help you"
+    aria-label="enter your message"
+    required></textarea>
+  <label for="proof">Human?</label>
+  <input name="proof" id="proof" type="text" aria-label="how much is 3 plus 2?" placeholder="3 + 2 = ?"/>
+  <button type="submit">Send</button>
+</form>

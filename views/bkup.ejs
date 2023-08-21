@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Contact form">
+    <meta name="keywords" content="HTML, CSS, JavaScript, htmx">
+    <meta name="author" content="Jerome Olivier">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerome Olivier</title>
+    <link rel='stylesheet' href="css/style.css"/>
+    <!--    <script src="js/htmx.js" defer></script>-->
+  </head>
+  <body class="blue-background">
+    <header>
+      <div aria-hidden="true" class="colors">
+        <div aria-hidden="true" class="color-btn red-fill" onclick="changeColor('red')"></div>
+        <div aria-hidden="true" class="color-btn orange-fill" onclick="changeColor('orange')"></div>
+        <div aria-hidden="true" class="color-btn yellow-fill" onclick="changeColor('yellow')"></div>
+        <div aria-hidden="true" class="color-btn green-fill" onclick="changeColor('green')"></div>
+        <div aria-hidden="true" class="color-btn blue-fill" onclick="changeColor('blue')"></div>
+        <div aria-hidden="true" class="color-btn purple-fill" onclick="changeColor('purple')"></div>
+        <div aria-hidden="true" class="color-btn fuchsia-fill" onclick="changeColor('fuchsia')"></div>
+        <div aria-hidden="true" class="color-btn grey-fill" onclick="changeColor('grey')"></div>
+      </div>
+      <nav>
+        <a href="/" hx-get="/" hx-swap="outerHTML" hx-target="main">about</a>
+        <a href="/resume" hx-get="/resume" hx-swap="outerHTML" hx-target="main">resume</a>
+        <a href="/contact" hx-get="/contact" hx-swap="outerHTML" hx-target="main">contact</a>
+      </nav>
+    </header>
+    <main>
+      <h1>Contact Form</h1>
+      <p>Send me a message, and I'll get back to you as soon as possible.</p>
+      <form action="/post-contact" method="post">
+        <label for="email">Email</label>
+        <input class="blue-border" type="email" id="email" name="email" placeholder="your email" required>
+        <label for="message">Message</label>
+        <textarea class="blue-border"
+                  id="message"
+                  name="message"
+                  placeholder="tell me how can i help you"
+                  required></textarea>
+        <label for="proof">Human?</label>
+        <input name="proof" id="proof" type="text" placeholder="3 + 2 = ?"/>
+
+        <button class="blue-border" type="submit">Send</button>
+      </form>
+    </main>
+    <script>
+      function swapBackgroundColor(color) {
+        document.querySelector("body").className = `${ color }-background`;
+        document.querySelectorAll("input").forEach(input => input.className = `${ color }-border`);
+        document.querySelector("textarea").className = `${ color }-border`;
+        document.querySelector("button[type=submit]").className = `${ color }-border`;
+      }
+      function isValid() {
+        const proof = document.querySelector("#proof");
+        return proof.value !== "5";
+      }
+    </script>
+  </body>
+</html>
